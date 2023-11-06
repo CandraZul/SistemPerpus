@@ -4,8 +4,13 @@
  */
 package com.mycompany.sistemperpus;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -127,6 +132,26 @@ public class Jframe_login extends javax.swing.JFrame {
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         // TODO add your handling code here:
+        Connection connection = DatabaseConnection.getConnection();
+        try{
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM admins";
+            ResultSet result = statement.executeQuery(sql);
+            boolean userFound = false;
+            while(result.next()){
+                if(result.getString("username").equals(input_username.getText())){
+                    Jframe_dasboard dashboardFrame = new Jframe_dasboard();
+                    dashboardFrame.setVisible(true);
+                    userFound = true;
+                    break;
+                }
+            }
+            if (!userFound) {
+                JOptionPane.showMessageDialog(this, "Nama pengguna tidak valid.", "Kesalahan", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_button_loginActionPerformed
 
     private void input_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_usernameKeyTyped
