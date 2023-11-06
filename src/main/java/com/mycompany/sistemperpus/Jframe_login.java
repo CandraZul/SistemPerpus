@@ -31,26 +31,26 @@ public class Jframe_login extends javax.swing.JFrame {
     private void initComponents() {
 
         label_date = new javax.swing.JLabel();
-        input_nama = new javax.swing.JTextField();
+        input_username = new javax.swing.JTextField();
         input_pw = new javax.swing.JTextField();
         label_judul = new javax.swing.JLabel();
         button_login = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        label_username = new javax.swing.JLabel();
+        label_paw = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label_date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_date.setText("0");
 
-        input_nama.addActionListener(new java.awt.event.ActionListener() {
+        input_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_namaActionPerformed(evt);
+                input_usernameActionPerformed(evt);
             }
         });
-        input_nama.addKeyListener(new java.awt.event.KeyAdapter() {
+        input_username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                input_namaKeyTyped(evt);
+                input_usernameKeyTyped(evt);
             }
         });
 
@@ -66,9 +66,9 @@ public class Jframe_login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Username ");
+        label_username.setText("Username ");
 
-        jLabel2.setText("Password");
+        label_paw.setText("Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,17 +84,17 @@ public class Jframe_login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(label_judul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(input_nama)
+                            .addComponent(input_username)
                             .addComponent(input_pw))
                         .addGap(59, 59, 59))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(button_login, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(label_username)
                         .addGap(165, 165, 165))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(label_paw)
                         .addGap(170, 170, 170))))
         );
         layout.setVerticalGroup(
@@ -105,11 +105,11 @@ public class Jframe_login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(label_judul)
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addComponent(label_username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(input_nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(input_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(label_paw)
                 .addGap(2, 2, 2)
                 .addComponent(input_pw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -121,20 +121,20 @@ public class Jframe_login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void input_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_namaActionPerformed
+    private void input_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_input_namaActionPerformed
+    }//GEN-LAST:event_input_usernameActionPerformed
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_loginActionPerformed
 
-    private void input_namaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_namaKeyTyped
-        if ("".equals(input_nama.getText()))
+    private void input_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_usernameKeyTyped
+        if ("".equals(input_username.getText()))
         {
 
         }
-    }//GEN-LAST:event_input_namaKeyTyped
+    }//GEN-LAST:event_input_usernameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -176,11 +176,11 @@ public class Jframe_login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_login;
-    private javax.swing.JTextField input_nama;
     private javax.swing.JTextField input_pw;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField input_username;
     private javax.swing.JLabel label_date;
     private javax.swing.JLabel label_judul;
+    private javax.swing.JLabel label_paw;
+    private javax.swing.JLabel label_username;
     // End of variables declaration//GEN-END:variables
 }

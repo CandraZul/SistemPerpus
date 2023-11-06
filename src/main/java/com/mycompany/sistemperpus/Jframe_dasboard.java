@@ -39,49 +39,49 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        label_welcome = new javax.swing.JLabel();
+        label_logobalikbuku = new javax.swing.JLabel();
+        label_logobuku = new javax.swing.JLabel();
+        label_logopinjambuku = new javax.swing.JLabel();
+        label_logomember = new javax.swing.JLabel();
         label_date = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        label_balikbuku = new javax.swing.JLabel();
+        label_buku = new javax.swing.JLabel();
+        label_member = new javax.swing.JLabel();
+        label_pinjambuku = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("WELCUM");
+        label_welcome.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        label_welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_welcome.setText("WELCUM");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pengembalianbuku.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        label_logobalikbuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pengembalianbuku.png"))); // NOI18N
+        label_logobalikbuku.setText("label_logobuku");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_buku.png"))); // NOI18N
-        jLabel3.setText("jLabel2");
+        label_logobuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_buku.png"))); // NOI18N
+        label_logobuku.setText("jLabel2");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pinjambuku.png"))); // NOI18N
-        jLabel4.setText("jLabel2");
+        label_logopinjambuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pinjambuku.png"))); // NOI18N
+        label_logopinjambuku.setText("jLabel2");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_members.png"))); // NOI18N
-        jLabel5.setText("jLabel2");
+        label_logomember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_members.png"))); // NOI18N
+        label_logomember.setText("jLabel2");
 
         label_date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_date.setText("0");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Return Book");
+        label_balikbuku.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label_balikbuku.setText("Return Book");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setText("Buku");
+        label_buku.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label_buku.setText("Buku");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Member");
+        label_member.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label_member.setText("Member");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel9.setText("Borrow Book");
+        label_pinjambuku.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label_pinjambuku.setText("Borrow Book");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,33 +91,32 @@ public class Jframe_dasboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 125, Short.MAX_VALUE)
+                        .addGap(0, 131, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(166, 166, 166)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel6)))
-                                .addGap(147, 147, 147))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(223, 223, 223))))
+                            .addComponent(label_logopinjambuku, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_logobuku, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_pinjambuku, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(166, 166, 166)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_logobalikbuku, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_logomember, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(label_balikbuku)))
+                        .addGap(147, 147, 147))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label_date, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(jLabel7)
+                .addGap(187, 187, 187)
+                .addComponent(label_buku)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
+                .addComponent(label_member)
                 .addGap(178, 178, 178))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(217, 217, 217))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,23 +124,23 @@ public class Jframe_dasboard extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(label_date)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
+                    .addComponent(label_logobuku)
+                    .addComponent(label_logomember))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(label_buku)
+                    .addComponent(label_member))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
+                    .addComponent(label_logobalikbuku)
+                    .addComponent(label_logopinjambuku))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel9))
+                    .addComponent(label_balikbuku)
+                    .addComponent(label_pinjambuku))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -186,15 +185,15 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel label_balikbuku;
+    private javax.swing.JLabel label_buku;
     private javax.swing.JLabel label_date;
+    private javax.swing.JLabel label_logobalikbuku;
+    private javax.swing.JLabel label_logobuku;
+    private javax.swing.JLabel label_logomember;
+    private javax.swing.JLabel label_logopinjambuku;
+    private javax.swing.JLabel label_member;
+    private javax.swing.JLabel label_pinjambuku;
+    private javax.swing.JLabel label_welcome;
     // End of variables declaration//GEN-END:variables
 }
