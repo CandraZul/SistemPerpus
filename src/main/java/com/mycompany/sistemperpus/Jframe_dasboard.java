@@ -40,33 +40,21 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     private void initComponents() {
 
         label_welcome = new javax.swing.JLabel();
-        label_logobalikbuku = new javax.swing.JLabel();
-        label_logobuku = new javax.swing.JLabel();
-        label_logopinjambuku = new javax.swing.JLabel();
-        label_logomember = new javax.swing.JLabel();
         label_date = new javax.swing.JLabel();
         label_balikbuku = new javax.swing.JLabel();
         label_buku = new javax.swing.JLabel();
         label_member = new javax.swing.JLabel();
         label_pinjambuku = new javax.swing.JLabel();
+        button_balikbuku = new javax.swing.JButton();
+        button_buku = new javax.swing.JButton();
+        button_pinjambuku = new javax.swing.JButton();
+        button_member = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label_welcome.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         label_welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_welcome.setText("WELCUM");
-
-        label_logobalikbuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pengembalianbuku.png"))); // NOI18N
-        label_logobalikbuku.setText("label_logobuku");
-
-        label_logobuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_buku.png"))); // NOI18N
-        label_logobuku.setText("jLabel2");
-
-        label_logopinjambuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pinjambuku.png"))); // NOI18N
-        label_logopinjambuku.setText("jLabel2");
-
-        label_logomember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_members.png"))); // NOI18N
-        label_logomember.setText("jLabel2");
 
         label_date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_date.setText("0");
@@ -83,70 +71,129 @@ public class Jframe_dasboard extends javax.swing.JFrame {
         label_pinjambuku.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         label_pinjambuku.setText("Borrow Book");
 
+        button_balikbuku.setBackground(new java.awt.Color(60, 63, 65));
+        button_balikbuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pengembalianbuku.png"))); // NOI18N
+        button_balikbuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_balikbukuActionPerformed(evt);
+            }
+        });
+
+        button_buku.setBackground(new java.awt.Color(60, 63, 65));
+        button_buku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_buku.png"))); // NOI18N
+        button_buku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_bukuActionPerformed(evt);
+            }
+        });
+
+        button_pinjambuku.setBackground(new java.awt.Color(60, 63, 65));
+        button_pinjambuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_pinjambuku.png"))); // NOI18N
+        button_pinjambuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_pinjambukuActionPerformed(evt);
+            }
+        });
+
+        button_member.setBackground(new java.awt.Color(60, 63, 65));
+        button_member.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_members.png"))); // NOI18N
+        button_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_memberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 131, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_logopinjambuku, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_logobuku, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_pinjambuku, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(166, 166, 166)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_logobalikbuku, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_logomember, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(label_balikbuku)))
-                        .addGap(147, 147, 147))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label_date, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(187, 187, 187)
+                .addComponent(label_date, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(212, 212, 212)
                 .addComponent(label_buku)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label_member)
-                .addGap(178, 178, 178))
+                .addGap(156, 156, 156))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(label_pinjambuku)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(156, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button_buku, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_pinjambuku, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(141, 141, 141)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_member, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(button_balikbuku, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(label_balikbuku)
+                            .addGap(16, 16, 16))))
+                .addGap(115, 115, 115))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(217, 217, 217))
+                .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(label_date)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_logobuku)
-                    .addComponent(label_logomember))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(button_member))
+                    .addComponent(button_buku))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_buku)
                     .addComponent(label_member))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_logobalikbuku)
-                    .addComponent(label_logopinjambuku))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_balikbuku, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button_pinjambuku, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_balikbuku)
                     .addComponent(label_pinjambuku))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button_balikbukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_balikbukuActionPerformed
+        Return returnFrame = new Return();
+        returnFrame.setVisible(true);
+    }//GEN-LAST:event_button_balikbukuActionPerformed
+
+    private void button_bukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bukuActionPerformed
+       ManajemenBooks bookFrame = new ManajemenBooks();
+       bookFrame.setVisible(true);
+    }//GEN-LAST:event_button_bukuActionPerformed
+
+    private void button_pinjambukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_pinjambukuActionPerformed
+        // TODO add your handling code here:
+        Pinjam pinjamFrame = new Pinjam();
+        pinjamFrame.setVisible(true);
+    }//GEN-LAST:event_button_pinjambukuActionPerformed
+
+    private void button_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_memberActionPerformed
+        // TODO add your handling code here:
+        ManajemenAnggota anggotaFrame = new ManajemenAnggota();
+        anggotaFrame.setVisible(true);
+    }//GEN-LAST:event_button_memberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,13 +232,13 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_balikbuku;
+    private javax.swing.JButton button_buku;
+    private javax.swing.JButton button_member;
+    private javax.swing.JButton button_pinjambuku;
     private javax.swing.JLabel label_balikbuku;
     private javax.swing.JLabel label_buku;
     private javax.swing.JLabel label_date;
-    private javax.swing.JLabel label_logobalikbuku;
-    private javax.swing.JLabel label_logobuku;
-    private javax.swing.JLabel label_logomember;
-    private javax.swing.JLabel label_logopinjambuku;
     private javax.swing.JLabel label_member;
     private javax.swing.JLabel label_pinjambuku;
     private javax.swing.JLabel label_welcome;
