@@ -374,8 +374,10 @@ public class ManajemenBuku extends javax.swing.JFrame {
         LabelManajemenBuku.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         LabelManajemenBuku.setText("Manajemen Buku");
 
+        ButtonDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ButtonDashboard.setText("Dashboard");
 
+        ButtonBuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ButtonBuku.setText("Buku");
         ButtonBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
