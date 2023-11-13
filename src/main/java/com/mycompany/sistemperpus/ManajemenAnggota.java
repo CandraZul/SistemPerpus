@@ -4,6 +4,15 @@
  */
 package com.mycompany.sistemperpus;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author HP
@@ -15,8 +24,34 @@ public class ManajemenAnggota extends javax.swing.JFrame {
      */
     public ManajemenAnggota() {
         initComponents();
+        TableMember();
     }
-
+    
+    public void TableMember(){
+        Connection connection = DatabaseConnection.getConnection();
+        Statement statement = null;
+        try{
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM member";
+            ResultSet result = statement.executeQuery(sql);
+            
+            // memasukkan model tabel ke dalam tabel model
+            DefaultTableModel tableModel = (DefaultTableModel) memberTable.getModel();
+            tableModel.setRowCount(0);
+            while(result.next()){
+                String memberID = result.getString("member_id");
+                String name = result.getString("name");
+                String phoneNumber = result.getString("phone_number");
+                String address = result.getString("address");
+                
+                // memasukkan data ke dalam tabel
+                String tableData[] = {memberID, name, phoneNumber, address};
+                tableModel.addRow(tableData);
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+        }   
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,415 +61,254 @@ public class ManajemenAnggota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DashboardDialog = new javax.swing.JDialog();
-        AnggotaDialog = new javax.swing.JDialog();
-        LabelDaftarAnggota = new javax.swing.JLabel();
-        LabelIDAnggota = new javax.swing.JLabel();
-        LabelNamaAnggota = new javax.swing.JLabel();
-        LabelInformasiKontak = new javax.swing.JLabel();
-        LabelAlamatAnggota = new javax.swing.JLabel();
-        JawabanIdAnggota = new javax.swing.JTextField();
-        JawabanNamaAnggota = new javax.swing.JTextField();
-        JawabanInformasiKontak = new javax.swing.JTextField();
-        JawabanAlamatAnggota = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        ButtonTambah = new javax.swing.JButton();
-        ButtonEdit = new javax.swing.JButton();
-        ButtonHapus = new javax.swing.JButton();
-        DialogTambah = new javax.swing.JDialog();
-        LabelPenambahanAnggotaPerpustakaan = new javax.swing.JLabel();
-        LblIdAnggota = new javax.swing.JLabel();
-        LblNamaAnggota = new javax.swing.JLabel();
-        LblInformasiKontak = new javax.swing.JLabel();
-        LblAlamatAnggota = new javax.swing.JLabel();
-        JwbIDAnggota = new javax.swing.JTextField();
-        JwbNamaAngota = new javax.swing.JTextField();
-        JwbInformasiKontak = new javax.swing.JTextField();
-        JwbAlamatAnggota = new javax.swing.JTextField();
-        ButtonSimpan = new javax.swing.JButton();
-        ButtonBatal = new javax.swing.JButton();
-        DialogEdit = new javax.swing.JDialog();
-        LabelPengeditanInformasiAnggota = new javax.swing.JLabel();
-        labelIDanggota = new javax.swing.JLabel();
-        labelNamaAnggota = new javax.swing.JLabel();
-        labelInformasiKontak = new javax.swing.JLabel();
-        labelAlamatAnggota = new javax.swing.JLabel();
-        labelTindakanAnggota = new javax.swing.JLabel();
-        jawabIDAnggota = new javax.swing.JTextField();
-        jawabNamaAnggota = new javax.swing.JTextField();
-        jawabInformasiKontak = new javax.swing.JTextField();
-        jawabAlamatAnggota = new javax.swing.JTextField();
-        jawabTindakanAnggota = new javax.swing.JTextField();
-        jButtonSimpan = new javax.swing.JButton();
-        jButtonBatal = new javax.swing.JButton();
-        LabelManajemenAnggota = new javax.swing.JLabel();
-        ButtonDashboard = new javax.swing.JButton();
-        ButtonAnggota = new javax.swing.JButton();
-
-        javax.swing.GroupLayout DashboardDialogLayout = new javax.swing.GroupLayout(DashboardDialog.getContentPane());
-        DashboardDialog.getContentPane().setLayout(DashboardDialogLayout);
-        DashboardDialogLayout.setHorizontalGroup(
-            DashboardDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        DashboardDialogLayout.setVerticalGroup(
-            DashboardDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        LabelDaftarAnggota.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        LabelDaftarAnggota.setText("Daftar Anggota");
-
-        LabelIDAnggota.setText("ID Anggota         :");
-
-        LabelNamaAnggota.setText("Nama Anggota   :");
-
-        LabelInformasiKontak.setText("Informasi Kontak :");
-
-        LabelAlamatAnggota.setText("Alamat Anggota :");
-
-        JawabanAlamatAnggota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JawabanAlamatAnggotaActionPerformed(evt);
-            }
-        });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID Anggota", "Nama Anggota", "Informasi Kontak", "Alamat Anggota", "Tindakan Anggota "
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        ButtonTambah.setText("Tambah");
-
-        ButtonEdit.setText("Edit");
-
-        ButtonHapus.setText("Hapus");
-        ButtonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonHapusActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout AnggotaDialogLayout = new javax.swing.GroupLayout(AnggotaDialog.getContentPane());
-        AnggotaDialog.getContentPane().setLayout(AnggotaDialogLayout);
-        AnggotaDialogLayout.setHorizontalGroup(
-            AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AnggotaDialogLayout.createSequentialGroup()
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AnggotaDialogLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LabelInformasiKontak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelAlamatAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelIDAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelNamaAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JawabanIdAnggota)
-                            .addComponent(JawabanNamaAnggota)
-                            .addComponent(JawabanInformasiKontak)
-                            .addComponent(JawabanAlamatAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
-                    .addGroup(AnggotaDialogLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AnggotaDialogLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(ButtonTambah)
-                        .addGap(69, 69, 69)
-                        .addComponent(ButtonEdit)
-                        .addGap(70, 70, 70)
-                        .addComponent(ButtonHapus)))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnggotaDialogLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(LabelDaftarAnggota)
-                .addGap(256, 256, 256))
-        );
-        AnggotaDialogLayout.setVerticalGroup(
-            AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AnggotaDialogLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(LabelDaftarAnggota)
-                .addGap(42, 42, 42)
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelIDAnggota)
-                    .addComponent(JawabanIdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNamaAnggota)
-                    .addComponent(JawabanNamaAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelInformasiKontak)
-                    .addComponent(JawabanInformasiKontak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelAlamatAnggota)
-                    .addComponent(JawabanAlamatAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(AnggotaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonTambah)
-                    .addComponent(ButtonEdit)
-                    .addComponent(ButtonHapus))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        LabelPenambahanAnggotaPerpustakaan.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        LabelPenambahanAnggotaPerpustakaan.setText("Penambahan Anggota Perpustakaan");
-
-        LblIdAnggota.setText("ID Anggota         :");
-
-        LblNamaAnggota.setText("Nama Anggota   :");
-
-        LblInformasiKontak.setText("Informasi Kontak :");
-
-        LblAlamatAnggota.setText("Alamat Anggota :");
-
-        JwbNamaAngota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JwbNamaAngotaActionPerformed(evt);
-            }
-        });
-
-        ButtonSimpan.setText("Simpan");
-
-        ButtonBatal.setText("Batal");
-
-        javax.swing.GroupLayout DialogTambahLayout = new javax.swing.GroupLayout(DialogTambah.getContentPane());
-        DialogTambah.getContentPane().setLayout(DialogTambahLayout);
-        DialogTambahLayout.setHorizontalGroup(
-            DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogTambahLayout.createSequentialGroup()
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(DialogTambahLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonSimpan)
-                        .addGap(41, 41, 41)
-                        .addComponent(ButtonBatal))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DialogTambahLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LabelPenambahanAnggotaPerpustakaan, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(DialogTambahLayout.createSequentialGroup()
-                                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(LblIdAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(LblNamaAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(LblInformasiKontak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(LblAlamatAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JwbIDAnggota)
-                                    .addComponent(JwbNamaAngota)
-                                    .addComponent(JwbInformasiKontak)
-                                    .addComponent(JwbAlamatAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))))))
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
-        DialogTambahLayout.setVerticalGroup(
-            DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogTambahLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(LabelPenambahanAnggotaPerpustakaan)
-                .addGap(49, 49, 49)
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LblIdAnggota)
-                    .addComponent(JwbIDAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblNamaAnggota)
-                    .addComponent(JwbNamaAngota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblInformasiKontak)
-                    .addComponent(JwbInformasiKontak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblAlamatAnggota)
-                    .addComponent(JwbAlamatAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addGroup(DialogTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonSimpan)
-                    .addComponent(ButtonBatal))
-                .addGap(57, 57, 57))
-        );
-
-        LabelPengeditanInformasiAnggota.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        LabelPengeditanInformasiAnggota.setText("Pengeditan Informasi Anggota");
-
-        labelIDanggota.setText("ID Anggota          :");
-
-        labelNamaAnggota.setText("Nama Anggota    :");
-
-        labelInformasiKontak.setText("Informasi Kontak  :");
-
-        labelAlamatAnggota.setText("Alamat Anggota   :");
-
-        labelTindakanAnggota.setText("Tindakan Anggota :");
-
-        jawabNamaAnggota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jawabNamaAnggotaActionPerformed(evt);
-            }
-        });
-
-        jButtonSimpan.setText("Simpan");
-
-        jButtonBatal.setText("Batal");
-
-        javax.swing.GroupLayout DialogEditLayout = new javax.swing.GroupLayout(DialogEdit.getContentPane());
-        DialogEdit.getContentPane().setLayout(DialogEditLayout);
-        DialogEditLayout.setHorizontalGroup(
-            DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogEditLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DialogEditLayout.createSequentialGroup()
-                        .addComponent(LabelPengeditanInformasiAnggota)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(DialogEditLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSimpan)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButtonBatal)
-                        .addGap(93, 93, 93))))
-            .addGroup(DialogEditLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(labelInformasiKontak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelAlamatAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelIDanggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelNamaAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(labelTindakanAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jawabIDAnggota)
-                    .addComponent(jawabNamaAnggota)
-                    .addComponent(jawabInformasiKontak)
-                    .addComponent(jawabAlamatAnggota)
-                    .addComponent(jawabTindakanAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
-        DialogEditLayout.setVerticalGroup(
-            DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogEditLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(LabelPengeditanInformasiAnggota)
-                .addGap(55, 55, 55)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelIDanggota)
-                    .addComponent(jawabIDAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNamaAnggota)
-                    .addComponent(jawabNamaAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelInformasiKontak)
-                    .addComponent(jawabInformasiKontak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelAlamatAnggota)
-                    .addComponent(jawabAlamatAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTindakanAnggota)
-                    .addComponent(jawabTindakanAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addGroup(DialogEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSimpan)
-                    .addComponent(jButtonBatal))
-                .addGap(55, 55, 55))
-        );
+        LabelDaftarAnggota1 = new javax.swing.JLabel();
+        buttonTambah = new javax.swing.JButton();
+        LabelIDAnggota1 = new javax.swing.JLabel();
+        buttonEdit = new javax.swing.JButton();
+        LabelNamaAnggota1 = new javax.swing.JLabel();
+        buttonHapus = new javax.swing.JButton();
+        LabelInformasiKontak1 = new javax.swing.JLabel();
+        LabelAlamatAnggota1 = new javax.swing.JLabel();
+        inputMemberID = new javax.swing.JTextField();
+        inputName = new javax.swing.JTextField();
+        inputPhoneNumber = new javax.swing.JTextField();
+        inputAddress = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        memberTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        LabelManajemenAnggota.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        LabelManajemenAnggota.setText("Manajemen Anggota");
+        LabelDaftarAnggota1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        LabelDaftarAnggota1.setText("Daftar Anggota");
 
-        ButtonDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ButtonDashboard.setText("Dashboard");
-        ButtonDashboard.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambah.setText("Tambah");
+        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonDashboardActionPerformed(evt);
+                buttonTambahActionPerformed(evt);
             }
         });
 
-        ButtonAnggota.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ButtonAnggota.setText("Anggota");
-        ButtonAnggota.addActionListener(new java.awt.event.ActionListener() {
+        LabelIDAnggota1.setText("ID Anggota         :");
+
+        buttonEdit.setText("Edit");
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAnggotaActionPerformed(evt);
+                buttonEditActionPerformed(evt);
             }
         });
+
+        LabelNamaAnggota1.setText("Nama Anggota   :");
+
+        buttonHapus.setText("Hapus");
+        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusActionPerformed(evt);
+            }
+        });
+
+        LabelInformasiKontak1.setText("Informasi Kontak :");
+
+        LabelAlamatAnggota1.setText("Alamat Anggota :");
+
+        inputMemberID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputMemberIDActionPerformed(evt);
+            }
+        });
+
+        inputAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputAddressActionPerformed(evt);
+            }
+        });
+
+        memberTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Anggota", "Nama Anggota", "Informasi Kontak", "Alamat Anggota"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        memberTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                memberTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(memberTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(ButtonDashboard)
-                .addGap(37, 37, 37)
-                .addComponent(ButtonAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addComponent(LabelManajemenAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGap(0, 257, Short.MAX_VALUE)
+                .addComponent(LabelDaftarAnggota1)
+                .addGap(256, 256, 256))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LabelInformasiKontak1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelAlamatAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelIDAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelNamaAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inputMemberID)
+                            .addComponent(inputName)
+                            .addComponent(inputPhoneNumber)
+                            .addComponent(inputAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(buttonTambah)
+                        .addGap(69, 69, 69)
+                        .addComponent(buttonEdit)
+                        .addGap(70, 70, 70)
+                        .addComponent(buttonHapus)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(LabelManajemenAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addComponent(LabelDaftarAnggota1)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelIDAnggota1)
+                    .addComponent(inputMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                    .addComponent(LabelNamaAnggota1)
+                    .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelInformasiKontak1)
+                    .addComponent(inputPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelAlamatAnggota1)
+                    .addComponent(inputAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonTambah)
+                    .addComponent(buttonEdit)
+                    .addComponent(buttonHapus))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDashboardActionPerformed
-        // TODO add your handling code here:
-        super.dispose();
-    }//GEN-LAST:event_ButtonDashboardActionPerformed
+    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+        String memberID = inputMemberID.getText();
+        Connection connection = DatabaseConnection.getConnection();
+        try{
+            String sql = "DELETE FROM member WHERE member_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, memberID);
+            preparedStatement.executeUpdate();
+            TableMember();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_buttonHapusActionPerformed
 
-    private void JawabanAlamatAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JawabanAlamatAnggotaActionPerformed
+    private void inputAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JawabanAlamatAnggotaActionPerformed
+    }//GEN-LAST:event_inputAddressActionPerformed
 
-    private void JwbNamaAngotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JwbNamaAngotaActionPerformed
+    private void inputMemberIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMemberIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JwbNamaAngotaActionPerformed
+    }//GEN-LAST:event_inputMemberIDActionPerformed
 
-    private void jawabNamaAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jawabNamaAnggotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jawabNamaAnggotaActionPerformed
+    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
+        // menambahkan data saat button tambah dipencet
+        String memberID = inputMemberID.getText();
+        String name = inputName.getText();
+        String phoneNumber = inputPhoneNumber.getText();
+        String address = inputAddress.getText();
+        
+        Connection connection = DatabaseConnection.getConnection();
+        try{
+            String sql = "INSERT into member (member_id, name, phone_number, address) value (?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, memberID);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, phoneNumber);
+            preparedStatement.setString(4, address);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Member successfully added", "Success", JOptionPane.INFORMATION_MESSAGE);
+            TableMember();
+        }catch(SQLException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_buttonTambahActionPerformed
 
-    private void ButtonAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAnggotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonAnggotaActionPerformed
+    private void memberTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberTableMouseClicked
+        // meletakkan baris data di tabel ke dalam text field saat diklik
+        int i = memberTable.getSelectedRow();
+        TableModel model = memberTable.getModel();
+        inputMemberID.setText(model.getValueAt(i, 0).toString());
+        inputName.setText(model.getValueAt(i, 1).toString());
+        inputPhoneNumber.setText(model.getValueAt(i, 2).toString());
+        inputAddress.setText(model.getValueAt(i, 3).toString());
+    }//GEN-LAST:event_memberTableMouseClicked
 
-    private void ButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonHapusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonHapusActionPerformed
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        String memberID = inputMemberID.getText();
+        String name = inputName.getText();
+        String phoneNumber = inputPhoneNumber.getText();
+        String address = inputAddress.getText();
+        
+        // mengambil memberID lama dari tabel
+        int i = memberTable.getSelectedRow();
+        TableModel model = memberTable.getModel();
+        String lastMemberID = model.getValueAt(i, 0).toString();
+        
+        Connection connection = DatabaseConnection.getConnection();
+        try{
+            String sql = "UPDATE member SET member_id=?, name=?, phone_number=?, address=? WHERE member_id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, memberID);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, phoneNumber);
+            preparedStatement.setString(4, address);
+            preparedStatement.setString(5, lastMemberID);
+            preparedStatement.executeUpdate();
+            TableMember();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonEditActionPerformed
 
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -461,6 +335,20 @@ public class ManajemenAnggota extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -471,50 +359,19 @@ public class ManajemenAnggota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog AnggotaDialog;
-    private javax.swing.JButton ButtonAnggota;
-    private javax.swing.JButton ButtonBatal;
-    private javax.swing.JButton ButtonDashboard;
-    private javax.swing.JButton ButtonEdit;
-    private javax.swing.JButton ButtonHapus;
-    private javax.swing.JButton ButtonSimpan;
-    private javax.swing.JButton ButtonTambah;
-    private javax.swing.JDialog DashboardDialog;
-    private javax.swing.JDialog DialogEdit;
-    private javax.swing.JDialog DialogTambah;
-    private javax.swing.JTextField JawabanAlamatAnggota;
-    private javax.swing.JTextField JawabanIdAnggota;
-    private javax.swing.JTextField JawabanInformasiKontak;
-    private javax.swing.JTextField JawabanNamaAnggota;
-    private javax.swing.JTextField JwbAlamatAnggota;
-    private javax.swing.JTextField JwbIDAnggota;
-    private javax.swing.JTextField JwbInformasiKontak;
-    private javax.swing.JTextField JwbNamaAngota;
-    private javax.swing.JLabel LabelAlamatAnggota;
-    private javax.swing.JLabel LabelDaftarAnggota;
-    private javax.swing.JLabel LabelIDAnggota;
-    private javax.swing.JLabel LabelInformasiKontak;
-    private javax.swing.JLabel LabelManajemenAnggota;
-    private javax.swing.JLabel LabelNamaAnggota;
-    private javax.swing.JLabel LabelPenambahanAnggotaPerpustakaan;
-    private javax.swing.JLabel LabelPengeditanInformasiAnggota;
-    private javax.swing.JLabel LblAlamatAnggota;
-    private javax.swing.JLabel LblIdAnggota;
-    private javax.swing.JLabel LblInformasiKontak;
-    private javax.swing.JLabel LblNamaAnggota;
-    private javax.swing.JButton jButtonBatal;
-    private javax.swing.JButton jButtonSimpan;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jawabAlamatAnggota;
-    private javax.swing.JTextField jawabIDAnggota;
-    private javax.swing.JTextField jawabInformasiKontak;
-    private javax.swing.JTextField jawabNamaAnggota;
-    private javax.swing.JTextField jawabTindakanAnggota;
-    private javax.swing.JLabel labelAlamatAnggota;
-    private javax.swing.JLabel labelIDanggota;
-    private javax.swing.JLabel labelInformasiKontak;
-    private javax.swing.JLabel labelNamaAnggota;
-    private javax.swing.JLabel labelTindakanAnggota;
+    private javax.swing.JLabel LabelAlamatAnggota1;
+    private javax.swing.JLabel LabelDaftarAnggota1;
+    private javax.swing.JLabel LabelIDAnggota1;
+    private javax.swing.JLabel LabelInformasiKontak1;
+    private javax.swing.JLabel LabelNamaAnggota1;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonTambah;
+    private javax.swing.JTextField inputAddress;
+    private javax.swing.JTextField inputMemberID;
+    private javax.swing.JTextField inputName;
+    private javax.swing.JTextField inputPhoneNumber;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable memberTable;
     // End of variables declaration//GEN-END:variables
 }
