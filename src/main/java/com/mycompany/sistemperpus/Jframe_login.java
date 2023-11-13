@@ -139,7 +139,7 @@ public class Jframe_login extends javax.swing.JFrame {
             ResultSet result = statement.executeQuery(sql);
             boolean userFound = false;
             while(result.next()){
-                if(result.getString("username").equals(input_username.getText())){
+                if(result.getString("username").equals(input_username.getText()) && result.getString("password").equals(input_pw.getText())){
                     Jframe_dasboard dashboardFrame = new Jframe_dasboard();
                     dashboardFrame.setVisible(true);
                     userFound = true;
@@ -147,7 +147,7 @@ public class Jframe_login extends javax.swing.JFrame {
                 }
             }
             if (!userFound) {
-                JOptionPane.showMessageDialog(this, "Nama pengguna tidak valid.", "Kesalahan", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Username or Password wrong", "Kesalahan", JOptionPane.ERROR_MESSAGE);
             }
         }catch(SQLException e){
             System.out.println(e);
