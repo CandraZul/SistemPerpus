@@ -230,6 +230,10 @@ public class ManajemenAnggota extends javax.swing.JFrame {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, memberID);
             preparedStatement.executeUpdate();
+            inputMemberID.setText("");
+            inputName.setText("");
+            inputPhoneNumber.setText("");
+            inputAddress.setText("");
             TableMember();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
@@ -301,6 +305,10 @@ public class ManajemenAnggota extends javax.swing.JFrame {
             preparedStatement.setString(4, address);
             preparedStatement.setString(5, lastMemberID);
             preparedStatement.executeUpdate();
+            inputMemberID.setText("");
+            inputName.setText("");
+            inputPhoneNumber.setText("");
+            inputAddress.setText("");
             TableMember();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
