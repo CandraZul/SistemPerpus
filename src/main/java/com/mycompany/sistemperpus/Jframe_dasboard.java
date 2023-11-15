@@ -179,7 +179,7 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     }//GEN-LAST:event_button_balikbukuActionPerformed
 
     private void button_bukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_bukuActionPerformed
-       ManajemenBuku bookFrame = new ManajemenBuku();
+       ManajemenBooks bookFrame = new ManajemenBooks();
        bookFrame.setVisible(true);
     }//GEN-LAST:event_button_bukuActionPerformed
 
