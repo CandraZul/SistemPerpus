@@ -234,17 +234,15 @@ public class Return extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-        String memberID = inputMemberID.getText();
-        
+    
+    public void loanTable(String keyword){
         Connection connection = DatabaseConnection.getConnection();
         PreparedStatement preparedStatement = null;
         try{
             // menggabungkan tabel loan_items dan books
             String sql = "SELECT loan_items.*, books.title FROM loan_items INNER JOIN books ON loan_items.book_id = books.book_id WHERE loan_items.member_id = ?";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, memberID);
+            preparedStatement.setString(1, keyword);
             ResultSet result = preparedStatement.executeQuery();
             
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -268,6 +266,12 @@ public class Return extends javax.swing.JFrame {
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
+        String memberID = inputMemberID.getText();
+        
+        this.loanTable(memberID);
     }//GEN-LAST:event_buttonSearchActionPerformed
 
     private void inputMemberIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputMemberIDActionPerformed
@@ -292,6 +296,7 @@ public class Return extends javax.swing.JFrame {
 
     private void buttonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnActionPerformed
         String bookID = inputBookID.getText();
+        String memberID = inputMemberID.getText();
         
         Connection connection = DatabaseConnection.getConnection();
         try{
@@ -299,6 +304,10 @@ public class Return extends javax.swing.JFrame {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, bookID);
             preparedStatement.executeUpdate();
+            String sqlUpdate = "UPDATE books SET available_stock = 1 ";
+            preparedStatement = connection.prepareStatement(sqlUpdate);
+            preparedStatement.executeUpdate();
+            this.loanTable(memberID);
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong, i can feel it", "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(e);
