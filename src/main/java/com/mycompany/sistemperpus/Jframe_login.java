@@ -152,7 +152,7 @@ Connection connection = DatabaseConnection.getConnection();
         }        // TODO add your handling code here:
     }//GEN-LAST:event_button_loginActionPerformed
 public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\HP\\OneDrive\\New folder\\SistemPerpus");
+        ImageIcon icon = new ImageIcon("3.png");
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(gambar.getWidth(), gambar.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
