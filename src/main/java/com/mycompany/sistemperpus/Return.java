@@ -112,6 +112,11 @@ public class Return extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 186, -1, -1));
 
         inputMemberID.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +281,10 @@ public class Return extends javax.swing.JFrame {
             inputLateFee.setText("Rp " + Integer.toString(fee));
         }
     }//GEN-LAST:event_tableMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 public void scaleImage(){
         ImageIcon icon = new ImageIcon("1.png");
         Image img = icon.getImage();

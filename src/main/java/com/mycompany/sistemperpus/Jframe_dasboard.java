@@ -58,7 +58,7 @@ public class Jframe_dasboard extends javax.swing.JFrame {
 
         label_welcome.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         label_welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_welcome.setText("WELCUM");
+        label_welcome.setText("WELCOME");
         getContentPane().add(label_welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 33, 326, 62));
 
         label_date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

@@ -80,6 +80,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
         ButtonTambah = new javax.swing.JButton();
         ButtonEdit = new javax.swing.JButton();
         ButtonHapus = new javax.swing.JButton();
+        ButtonBack = new javax.swing.JButton();
         InputTahun = new javax.swing.JTextField();
         LabelTahun = new javax.swing.JLabel();
         gambar = new javax.swing.JLabel();
@@ -158,7 +159,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
                 ButtonTambahActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 276, -1, -1));
+        getContentPane().add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 276, -1, -1));
 
         ButtonEdit.setBackground(new java.awt.Color(255, 153, 153));
         ButtonEdit.setText("Edit");
@@ -167,7 +168,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
                 ButtonEditActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 276, -1, -1));
+        getContentPane().add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 276, -1, -1));
 
         ButtonHapus.setBackground(new java.awt.Color(255, 153, 153));
         ButtonHapus.setText("Hapus");
@@ -176,7 +177,16 @@ public class ManajemenBooks extends javax.swing.JFrame {
                 ButtonHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 276, -1, -1));
+        getContentPane().add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 276, -1, -1));
+
+        ButtonBack.setBackground(new java.awt.Color(255, 153, 153));
+        ButtonBack.setText("Back");
+        ButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 276, -1, -1));
         getContentPane().add(InputTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 179, 321, -1));
 
         LabelTahun.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -281,6 +291,10 @@ public class ManajemenBooks extends javax.swing.JFrame {
             System.out.println(e);
         }     
     }//GEN-LAST:event_ButtonHapusActionPerformed
+
+    private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_ButtonBackActionPerformed
 public void scaleImage(){
         ImageIcon icon = new ImageIcon("2.png");
         Image img = icon.getImage();
@@ -324,6 +338,7 @@ public void scaleImage(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonBack;
     private javax.swing.JButton ButtonEdit;
     private javax.swing.JButton ButtonHapus;
     private javax.swing.JButton ButtonTambah;

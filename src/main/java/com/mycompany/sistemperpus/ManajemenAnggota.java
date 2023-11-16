@@ -70,6 +70,7 @@ public class ManajemenAnggota extends javax.swing.JFrame {
         buttonEdit = new javax.swing.JButton();
         LabelNamaAnggota1 = new javax.swing.JLabel();
         buttonHapus = new javax.swing.JButton();
+        ButtonBack = new javax.swing.JButton();
         LabelInformasiKontak1 = new javax.swing.JLabel();
         LabelAlamatAnggota1 = new javax.swing.JLabel();
         inputMemberID = new javax.swing.JTextField();
@@ -84,6 +85,7 @@ public class ManajemenAnggota extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelDaftarAnggota1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        LabelDaftarAnggota1.setForeground(new java.awt.Color(255, 255, 255));
         LabelDaftarAnggota1.setText("Daftar Anggota");
         getContentPane().add(LabelDaftarAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 38, -1, -1));
 
@@ -94,9 +96,10 @@ public class ManajemenAnggota extends javax.swing.JFrame {
                 buttonTambahActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 272, -1, -1));
+        getContentPane().add(buttonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         LabelIDAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelIDAnggota1.setForeground(new java.awt.Color(255, 255, 255));
         LabelIDAnggota1.setText("ID Anggota         :");
         getContentPane().add(LabelIDAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 86, 100, 30));
 
@@ -107,9 +110,10 @@ public class ManajemenAnggota extends javax.swing.JFrame {
                 buttonEditActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 272, -1, -1));
+        getContentPane().add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
         LabelNamaAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelNamaAnggota1.setForeground(new java.awt.Color(255, 255, 255));
         LabelNamaAnggota1.setText("Nama Anggota   :");
         getContentPane().add(LabelNamaAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 100, -1));
 
@@ -120,13 +124,24 @@ public class ManajemenAnggota extends javax.swing.JFrame {
                 buttonHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 272, -1, -1));
+        getContentPane().add(buttonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+
+        ButtonBack.setBackground(new java.awt.Color(255, 153, 153));
+        ButtonBack.setText("Back");
+        ButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         LabelInformasiKontak1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelInformasiKontak1.setForeground(new java.awt.Color(255, 255, 255));
         LabelInformasiKontak1.setText("Informasi Kontak :");
         getContentPane().add(LabelInformasiKontak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 186, -1, -1));
 
         LabelAlamatAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelAlamatAnggota1.setForeground(new java.awt.Color(255, 255, 255));
         LabelAlamatAnggota1.setText("Alamat Anggota :");
         getContentPane().add(LabelAlamatAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 226, 100, -1));
 
@@ -275,6 +290,10 @@ public class ManajemenAnggota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonEditActionPerformed
+
+    private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_ButtonBackActionPerformed
 public void scaleImage(){
         ImageIcon icon = new ImageIcon("2.png");
         Image img = icon.getImage();
@@ -334,6 +353,7 @@ public void scaleImage(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonBack;
     private javax.swing.JLabel LabelAlamatAnggota1;
     private javax.swing.JLabel LabelDaftarAnggota1;
     private javax.swing.JLabel LabelIDAnggota1;
