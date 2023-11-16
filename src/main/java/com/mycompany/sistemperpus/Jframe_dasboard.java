@@ -190,7 +190,6 @@ public class Jframe_dasboard extends javax.swing.JFrame {
     }//GEN-LAST:event_button_pinjambukuActionPerformed
 
     private void button_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_memberActionPerformed
-        // TODO add your handling code here:
         ManajemenAnggota anggotaFrame = new ManajemenAnggota();
         anggotaFrame.setVisible(true);
     }//GEN-LAST:event_button_memberActionPerformed
