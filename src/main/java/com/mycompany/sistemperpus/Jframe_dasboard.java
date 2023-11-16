@@ -6,8 +6,13 @@ package com.mycompany.sistemperpus;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -24,6 +29,20 @@ public class Jframe_dasboard extends javax.swing.JFrame {
         dt();
         getContentPane().setBackground(Color.gray);
         scaleImage();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                try {
+                    DatabaseConnection.getConnection().close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Jframe_dasboard.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    System.exit(0);
+                }
+                
+                
+            }
+        });
     }
     public void dt(){
         Date d = new Date();

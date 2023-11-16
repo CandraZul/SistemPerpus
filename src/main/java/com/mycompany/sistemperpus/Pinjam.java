@@ -47,7 +47,7 @@ public class Pinjam extends javax.swing.JFrame {
     private void initComponents() {
 
         jProgressBar1 = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
+        labelTitle = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         inputMemberID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -62,23 +62,23 @@ public class Pinjam extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Issue Books");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 17, -1, -1));
+        labelTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labelTitle.setText("Issue Books");
+        getContentPane().add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 17, -1, -1));
 
         jLabel4.setText("Member ID");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 133, -1, -1));
         getContentPane().add(inputMemberID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 130, 191, -1));
 
         jLabel5.setText("Book ID");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 63, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 90, -1, -1));
 
         inputBookID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputBookIDActionPerformed(evt);
             }
         });
-        getContentPane().add(inputBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 60, 191, -1));
+        getContentPane().add(inputBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 191, -1));
 
         jLabel6.setText("Date");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 170, -1, -1));
@@ -284,11 +284,11 @@ public void scaleImage(){
     private javax.swing.JTextField inputMemberID;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel label_date;
     // End of variables declaration//GEN-END:variables
 

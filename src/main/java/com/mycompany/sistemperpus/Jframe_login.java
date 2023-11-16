@@ -46,6 +46,7 @@ public class Jframe_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -127,6 +128,7 @@ public class Jframe_login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed

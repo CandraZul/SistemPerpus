@@ -181,6 +181,7 @@ public class Return extends javax.swing.JFrame {
         getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -8, 860, 460));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     public void loanTable(String keyword){
