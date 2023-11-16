@@ -87,23 +87,29 @@ public class ManajemenBooks extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelDaftarBuku.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        LabelDaftarBuku.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        LabelDaftarBuku.setForeground(new java.awt.Color(255, 255, 255));
         LabelDaftarBuku.setText("Daftar Buku");
         getContentPane().add(LabelDaftarBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 12, 138, -1));
 
         LabelJudulbuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelJudulbuku.setForeground(new java.awt.Color(255, 255, 255));
         LabelJudulbuku.setText("Judul Buku                    :");
         getContentPane().add(LabelJudulbuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 96, 130, -1));
 
+        LabelKodebuku.setBackground(new java.awt.Color(255, 255, 255));
         LabelKodebuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelKodebuku.setForeground(new java.awt.Color(255, 255, 255));
         LabelKodebuku.setText("Book ID                        :");
         getContentPane().add(LabelKodebuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 56, 128, -1));
 
         LabelPenulisbuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelPenulisbuku.setForeground(new java.awt.Color(255, 255, 255));
         LabelPenulisbuku.setText("Penulis Buku                 :");
         getContentPane().add(LabelPenulisbuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 142, 130, -1));
 
         LabelJumlahbukutersedia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelJumlahbukutersedia.setForeground(new java.awt.Color(255, 255, 255));
         LabelJumlahbukutersedia.setText("Jumlah Buku Tersedia  :");
         getContentPane().add(LabelJumlahbukutersedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 222, 140, -1));
         getContentPane().add(InputJudulBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 93, 321, -1));
@@ -174,6 +180,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
         getContentPane().add(InputTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 179, 321, -1));
 
         LabelTahun.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LabelTahun.setForeground(new java.awt.Color(255, 255, 255));
         LabelTahun.setText("Tahun Terbit                 :");
         getContentPane().add(LabelTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 182, 130, -1));
         getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 0, 760, 770));
