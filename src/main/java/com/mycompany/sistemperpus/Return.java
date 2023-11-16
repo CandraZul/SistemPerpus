@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemperpus;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -31,6 +33,7 @@ public class Return extends javax.swing.JFrame {
      */
     public Return() {
         initComponents();
+        scaleImage();
     }
 
     /**
@@ -58,14 +61,18 @@ public class Return extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         inputIssueDate = new javax.swing.JTextField();
         buttonReturn = new javax.swing.JButton();
+        gambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Return Books");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 6, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Member ID");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 141, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +97,9 @@ public class Return extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 61, -1, 217));
+
+        buttonSearch.setBackground(new java.awt.Color(255, 153, 153));
         buttonSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonSearch.setText("Search");
         buttonSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -97,140 +107,73 @@ public class Return extends javax.swing.JFrame {
                 buttonSearchActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 186, -1, -1));
 
+        jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Back");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 186, -1, -1));
 
         inputMemberID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputMemberIDActionPerformed(evt);
             }
         });
+        getContentPane().add(inputMemberID, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 138, 112, -1));
 
-        jLabel4.setText("Book Title");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Book   Title");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 340, 70, -1));
 
         inputLateFee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputLateFeeActionPerformed(evt);
             }
         });
+        getContentPane().add(inputLateFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 403, 144, -1));
 
-        jLabel5.setText("Issue Date");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Issue   Date");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 370, 70, -1));
 
         inputBookTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputBookTitleActionPerformed(evt);
             }
         });
+        getContentPane().add(inputBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 335, 144, -1));
 
-        jLabel6.setText("Book ID");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Book    ID");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 310, 60, -1));
 
         inputBookID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputBookIDActionPerformed(evt);
             }
         });
+        getContentPane().add(inputBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 301, 144, -1));
 
-        jLabel7.setText("Late Fee");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Late    Fee");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 400, 60, -1));
 
         inputIssueDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputIssueDateActionPerformed(evt);
             }
         });
+        getContentPane().add(inputIssueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 369, 144, -1));
 
+        buttonReturn.setBackground(new java.awt.Color(255, 153, 153));
         buttonReturn.setText("Return");
         buttonReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonReturnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(332, 332, 332)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonSearch))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(45, 45, 45)
-                        .addComponent(inputMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputLateFee, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputBookID, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputBookTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(60, 60, 60)
-                                .addComponent(inputIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonReturn)
-                        .addGap(47, 47, 47)))
-                .addGap(41, 41, 41))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(inputMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonSearch)
-                            .addComponent(jButton3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(inputBookID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(inputBookTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(inputIssueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(inputLateFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonReturn))
-                        .addGap(14, 14, 14))))
-        );
+        getContentPane().add(buttonReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 403, -1, -1));
+        getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -8, 860, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -333,7 +276,13 @@ public class Return extends javax.swing.JFrame {
             inputLateFee.setText("Rp " + Integer.toString(fee));
         }
     }//GEN-LAST:event_tableMouseClicked
-
+public void scaleImage(){
+        ImageIcon icon = new ImageIcon("1.png");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(gambar.getWidth(), gambar.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        gambar.setIcon(scaledIcon);
+    }
     /**
      * @param args the command line arguments
      */
@@ -375,6 +324,7 @@ public class Return extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonReturn;
     private javax.swing.JButton buttonSearch;
+    private javax.swing.JLabel gambar;
     private javax.swing.JTextField inputBookID;
     private javax.swing.JTextField inputBookTitle;
     private javax.swing.JTextField inputIssueDate;

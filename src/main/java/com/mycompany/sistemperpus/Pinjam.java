@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.sistemperpus;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +28,7 @@ public class Pinjam extends javax.swing.JFrame {
     public Pinjam() {
         initComponents();
         dt();
+        scaleImage();
     }
     public void dt(){
         Date d = new Date();
@@ -54,26 +57,36 @@ public class Pinjam extends javax.swing.JFrame {
         buttonBorrow = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        gambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Issue Books");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 17, -1, -1));
 
         jLabel4.setText("Member ID");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 133, -1, -1));
+        getContentPane().add(inputMemberID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 130, 191, -1));
 
         jLabel5.setText("Book ID");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 63, -1, -1));
 
         inputBookID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputBookIDActionPerformed(evt);
             }
         });
+        getContentPane().add(inputBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 60, 191, -1));
 
         jLabel6.setText("Date");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 170, -1, -1));
 
         label_date.setText("jLabel7");
+        getContentPane().add(label_date, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 170, -1, -1));
 
+        buttonBorrow.setBackground(new java.awt.Color(255, 153, 153));
         buttonBorrow.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonBorrow.setText("Borrow");
         buttonBorrow.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +94,9 @@ public class Pinjam extends javax.swing.JFrame {
                 buttonBorrowActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonBorrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 237, -1, 32));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Reset");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +104,9 @@ public class Pinjam extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 237, 80, 32));
 
+        jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -97,61 +114,8 @@ public class Pinjam extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(201, 201, 201))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonBorrow, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_date)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(inputMemberID, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                .addComponent(inputBookID)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(inputBookID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(inputMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(label_date))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonBorrow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 237, 80, 32));
+        getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -8, 510, 290));
 
         pack();
         setLocationRelativeTo(null);
@@ -240,7 +204,13 @@ public class Pinjam extends javax.swing.JFrame {
     private void inputBookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBookIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputBookIDActionPerformed
-
+public void scaleImage(){
+        ImageIcon icon = new ImageIcon("1.png");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(gambar.getWidth(), gambar.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        gambar.setIcon(scaledIcon);
+    }
     /**
      * @param args the command line arguments
      */
@@ -309,6 +279,7 @@ public class Pinjam extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBorrow;
+    private javax.swing.JLabel gambar;
     private javax.swing.JTextField inputBookID;
     private javax.swing.JTextField inputMemberID;
     private javax.swing.JButton jButton2;

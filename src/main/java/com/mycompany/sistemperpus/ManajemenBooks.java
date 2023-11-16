@@ -4,12 +4,14 @@
  */
 package com.mycompany.sistemperpus;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -26,6 +28,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
     public ManajemenBooks() {
         initComponents();
         TableBooks();
+        scaleImage();
     }
     public void TableBooks(){        
         Connection connection = DatabaseConnection.getConnection();
@@ -79,25 +82,40 @@ public class ManajemenBooks extends javax.swing.JFrame {
         ButtonHapus = new javax.swing.JButton();
         InputTahun = new javax.swing.JTextField();
         LabelTahun = new javax.swing.JLabel();
+        gambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelDaftarBuku.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         LabelDaftarBuku.setText("Daftar Buku");
+        getContentPane().add(LabelDaftarBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 12, 138, -1));
 
+        LabelJudulbuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelJudulbuku.setText("Judul Buku                    :");
+        getContentPane().add(LabelJudulbuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 96, 130, -1));
 
+        LabelKodebuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelKodebuku.setText("Book ID                        :");
+        getContentPane().add(LabelKodebuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 56, 128, -1));
 
+        LabelPenulisbuku.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelPenulisbuku.setText("Penulis Buku                 :");
+        getContentPane().add(LabelPenulisbuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 142, 130, -1));
 
+        LabelJumlahbukutersedia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelJumlahbukutersedia.setText("Jumlah Buku Tersedia  :");
+        getContentPane().add(LabelJumlahbukutersedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 222, 140, -1));
+        getContentPane().add(InputJudulBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 93, 321, -1));
+        getContentPane().add(InputBukuId, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 53, 321, -1));
 
         InputPenulisBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputPenulisBukuActionPerformed(evt);
             }
         });
+        getContentPane().add(InputPenulisBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 139, 321, -1));
+        getContentPane().add(InputTersedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 219, 321, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,103 +143,40 @@ public class ManajemenBooks extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 317, 689, -1));
+
+        ButtonTambah.setBackground(new java.awt.Color(255, 153, 153));
         ButtonTambah.setText("Tambah");
         ButtonTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahActionPerformed(evt);
             }
         });
+        getContentPane().add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 276, -1, -1));
 
+        ButtonEdit.setBackground(new java.awt.Color(255, 153, 153));
         ButtonEdit.setText("Edit");
         ButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonEditActionPerformed(evt);
             }
         });
+        getContentPane().add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 276, -1, -1));
 
+        ButtonHapus.setBackground(new java.awt.Color(255, 153, 153));
         ButtonHapus.setText("Hapus");
         ButtonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonHapusActionPerformed(evt);
             }
         });
+        getContentPane().add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 276, -1, -1));
+        getContentPane().add(InputTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 179, 321, -1));
 
+        LabelTahun.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelTahun.setText("Tahun Terbit                 :");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ButtonTambah)
-                        .addGap(26, 26, 26)
-                        .addComponent(ButtonEdit)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonHapus)
-                        .addGap(126, 126, 126))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(LabelJumlahbukutersedia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelPenulisbuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelKodebuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelTahun, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LabelJudulbuku, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(InputJudulBuku)
-                            .addComponent(InputPenulisBuku)
-                            .addComponent(InputTersedia)
-                            .addComponent(InputTahun)
-                            .addComponent(InputBukuId, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(122, 122, 122))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LabelDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(276, 276, 276))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(LabelDaftarBuku)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputBukuId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelKodebuku))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelJudulbuku))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputPenulisBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPenulisbuku))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelTahun))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputTersedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelJumlahbukutersedia))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonHapus)
-                    .addComponent(ButtonEdit)
-                    .addComponent(ButtonTambah))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        getContentPane().add(LabelTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 182, 130, -1));
+        getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 0, 760, 770));
 
         pack();
         setLocationRelativeTo(null);
@@ -319,7 +274,13 @@ public class ManajemenBooks extends javax.swing.JFrame {
             System.out.println(e);
         }     
     }//GEN-LAST:event_ButtonHapusActionPerformed
-
+public void scaleImage(){
+        ImageIcon icon = new ImageIcon("2.png");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(gambar.getWidth(), gambar.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        gambar.setIcon(scaledIcon);
+    }
     /**
      * @param args the command line arguments
      */
@@ -370,6 +331,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
     private javax.swing.JLabel LabelKodebuku;
     private javax.swing.JLabel LabelPenulisbuku;
     private javax.swing.JLabel LabelTahun;
+    private javax.swing.JLabel gambar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

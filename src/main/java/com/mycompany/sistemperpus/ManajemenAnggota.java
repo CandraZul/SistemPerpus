@@ -4,11 +4,13 @@
  */
 package com.mycompany.sistemperpus;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -25,6 +27,7 @@ public class ManajemenAnggota extends javax.swing.JFrame {
     public ManajemenAnggota() {
         initComponents();
         TableMember();
+        scaleImage();
     }
     
     public void TableMember(){
@@ -75,52 +78,73 @@ public class ManajemenAnggota extends javax.swing.JFrame {
         inputAddress = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         memberTable = new javax.swing.JTable();
+        gambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelDaftarAnggota1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         LabelDaftarAnggota1.setText("Daftar Anggota");
+        getContentPane().add(LabelDaftarAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 38, -1, -1));
 
+        buttonTambah.setBackground(new java.awt.Color(255, 153, 153));
         buttonTambah.setText("Tambah");
         buttonTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTambahActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 272, -1, -1));
 
+        LabelIDAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelIDAnggota1.setText("ID Anggota         :");
+        getContentPane().add(LabelIDAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 86, 100, 30));
 
+        buttonEdit.setBackground(new java.awt.Color(255, 153, 153));
         buttonEdit.setText("Edit");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 272, -1, -1));
 
+        LabelNamaAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelNamaAnggota1.setText("Nama Anggota   :");
+        getContentPane().add(LabelNamaAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 100, -1));
 
+        buttonHapus.setBackground(new java.awt.Color(255, 153, 153));
         buttonHapus.setText("Hapus");
         buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonHapusActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 272, -1, -1));
 
+        LabelInformasiKontak1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelInformasiKontak1.setText("Informasi Kontak :");
+        getContentPane().add(LabelInformasiKontak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 186, -1, -1));
 
+        LabelAlamatAnggota1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelAlamatAnggota1.setText("Alamat Anggota :");
+        getContentPane().add(LabelAlamatAnggota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 226, 100, -1));
 
         inputMemberID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputMemberIDActionPerformed(evt);
             }
         });
+        getContentPane().add(inputMemberID, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 93, 296, -1));
+        getContentPane().add(inputName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 296, -1));
+        getContentPane().add(inputPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 183, 296, -1));
 
         inputAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputAddressActionPerformed(evt);
             }
         });
+        getContentPane().add(inputAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 223, 296, -1));
 
         memberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,71 +176,8 @@ public class ManajemenAnggota extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(memberTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 257, Short.MAX_VALUE)
-                .addComponent(LabelDaftarAnggota1)
-                .addGap(256, 256, 256))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LabelInformasiKontak1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelAlamatAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelIDAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabelNamaAnggota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputMemberID)
-                            .addComponent(inputName)
-                            .addComponent(inputPhoneNumber)
-                            .addComponent(inputAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(buttonTambah)
-                        .addGap(69, 69, 69)
-                        .addComponent(buttonEdit)
-                        .addGap(70, 70, 70)
-                        .addComponent(buttonHapus)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(LabelDaftarAnggota1)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelIDAnggota1)
-                    .addComponent(inputMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNamaAnggota1)
-                    .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelInformasiKontak1)
-                    .addComponent(inputPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelAlamatAnggota1)
-                    .addComponent(inputAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonTambah)
-                    .addComponent(buttonEdit)
-                    .addComponent(buttonHapus))
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 317, 632, -1));
+        getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -5, 680, 790));
 
         pack();
         setLocationRelativeTo(null);
@@ -314,7 +275,13 @@ public class ManajemenAnggota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonEditActionPerformed
-
+public void scaleImage(){
+        ImageIcon icon = new ImageIcon("2.png");
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(gambar.getWidth(), gambar.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        gambar.setIcon(scaledIcon);
+    }
     /**
      * 
      * @param args the command line arguments
@@ -375,6 +342,7 @@ public class ManajemenAnggota extends javax.swing.JFrame {
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonTambah;
+    private javax.swing.JLabel gambar;
     private javax.swing.JTextField inputAddress;
     private javax.swing.JTextField inputMemberID;
     private javax.swing.JTextField inputName;
