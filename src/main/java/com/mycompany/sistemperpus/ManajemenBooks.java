@@ -70,11 +70,9 @@ public class ManajemenBooks extends javax.swing.JFrame {
         LabelJudulbuku = new javax.swing.JLabel();
         LabelKodebuku = new javax.swing.JLabel();
         LabelPenulisbuku = new javax.swing.JLabel();
-        LabelJumlahbukutersedia = new javax.swing.JLabel();
         InputJudulBuku = new javax.swing.JTextField();
         InputBukuId = new javax.swing.JTextField();
         InputPenulisBuku = new javax.swing.JTextField();
-        InputTersedia = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         ButtonTambah = new javax.swing.JButton();
@@ -108,11 +106,6 @@ public class ManajemenBooks extends javax.swing.JFrame {
         LabelPenulisbuku.setForeground(new java.awt.Color(255, 255, 255));
         LabelPenulisbuku.setText("Penulis Buku                 :");
         getContentPane().add(LabelPenulisbuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 142, 130, -1));
-
-        LabelJumlahbukutersedia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LabelJumlahbukutersedia.setForeground(new java.awt.Color(255, 255, 255));
-        LabelJumlahbukutersedia.setText("Jumlah Buku Tersedia  :");
-        getContentPane().add(LabelJumlahbukutersedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 222, 140, -1));
         getContentPane().add(InputJudulBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 93, 321, -1));
         getContentPane().add(InputBukuId, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 53, 321, -1));
 
@@ -122,7 +115,6 @@ public class ManajemenBooks extends javax.swing.JFrame {
             }
         });
         getContentPane().add(InputPenulisBuku, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 139, 321, -1));
-        getContentPane().add(InputTersedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 219, 321, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -204,11 +196,10 @@ public class ManajemenBooks extends javax.swing.JFrame {
     }//GEN-LAST:event_InputPenulisBukuActionPerformed
 
     private void ButtonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahActionPerformed
-        String bookID = InputJudulBuku.getText();
-        String judulBuku = InputBukuId.getText();
+        String bookID = InputBukuId.getText();
+        String judulBuku = InputJudulBuku.getText();
         String penulisBuku = InputPenulisBuku.getText();
         String tahun = InputTahun.getText();
-        String tersedia = InputTersedia.getText();
         
         Connection connection = DatabaseConnection.getConnection();
         try{
@@ -218,7 +209,7 @@ public class ManajemenBooks extends javax.swing.JFrame {
             preparedStatement.setString(2, judulBuku);
             preparedStatement.setString(3, penulisBuku);
             preparedStatement.setString(4, tahun);
-            preparedStatement.setString(5, tersedia);
+            preparedStatement.setInt(5, 1);
             preparedStatement.executeUpdate();
             TableBooks();
         }catch(SQLException e){
@@ -233,27 +224,24 @@ public class ManajemenBooks extends javax.swing.JFrame {
         String judulBuku = InputBukuId.getText();
         String penulisBuku = InputPenulisBuku.getText();
         String tahun = InputTahun.getText();
-        String tersedia = InputTersedia.getText();
         // mengambil memberID lama dari tabel
         int i = jTable1.getSelectedRow();
         TableModel model = jTable1.getModel();
         String lastBookID = model.getValueAt(i, 0).toString();
         Connection connection = DatabaseConnection.getConnection();
         try{
-            String sql = "UPDATE books SET book_id=?, title=?, author=?, publication_year=?, available_stock=? WHERE book_id=?";
+            String sql = "UPDATE books SET book_id=?, title=?, author=?, publication_year=? WHERE book_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, bookID);
             preparedStatement.setString(2, judulBuku);
             preparedStatement.setString(3, penulisBuku);
             preparedStatement.setString(4, tahun);
-            preparedStatement.setString(5, tersedia);
-            preparedStatement.setString(6, lastBookID);
+            preparedStatement.setString(5, lastBookID);
             preparedStatement.executeUpdate();
             InputJudulBuku.setText("");
             InputBukuId.setText("");
             InputPenulisBuku.setText("");
             InputTahun.setText("");
-            InputTersedia.setText("");
             TableBooks();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
@@ -267,7 +255,6 @@ public class ManajemenBooks extends javax.swing.JFrame {
         InputBukuId.setText(model.getValueAt(i, 0).toString());
         InputPenulisBuku.setText(model.getValueAt(i, 2).toString());
         InputTahun.setText(model.getValueAt(i, 3).toString());
-        InputTersedia.setText(model.getValueAt(i, 4).toString());
         
         
     }//GEN-LAST:event_jTable1MouseClicked
@@ -284,7 +271,6 @@ public class ManajemenBooks extends javax.swing.JFrame {
             InputBukuId.setText("");
             InputPenulisBuku.setText("");
             InputTahun.setText("");
-            InputTersedia.setText("");
             TableBooks();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Something wrong", "Error", JOptionPane.ERROR_MESSAGE);
@@ -346,10 +332,8 @@ public void scaleImage(){
     private javax.swing.JTextField InputJudulBuku;
     private javax.swing.JTextField InputPenulisBuku;
     private javax.swing.JTextField InputTahun;
-    private javax.swing.JTextField InputTersedia;
     private javax.swing.JLabel LabelDaftarBuku;
     private javax.swing.JLabel LabelJudulbuku;
-    private javax.swing.JLabel LabelJumlahbukutersedia;
     private javax.swing.JLabel LabelKodebuku;
     private javax.swing.JLabel LabelPenulisbuku;
     private javax.swing.JLabel LabelTahun;
